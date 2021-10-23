@@ -1,0 +1,47 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.gallery-container {
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+.gallery-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.gallery-image {
+    border: 1px solid black;
+    border-radius: 10px;
+    width: var(--card-width);
+    height: var(--card-height);
+    display: grid;
+    justify-content: space-evenly;
+    align-items: center;
+    grid-template-columns:  1fr 1fr;
+    grid-template-rows: 4fr 1fr ;
+    grid-template-areas:    "pic    pic"
+                            "like   likes";
+    padding: 1%;
+    margin: 1%; 
+    box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 4px;
+}
+
+.pic {
+    grid-area: pic;
+    max-height: 250px;
+    max-width: 250px;
+}
+
+.likes {
+    grid-area: likes;
+}
+
+.likeBtn {
+    grid-are: like;
+}
