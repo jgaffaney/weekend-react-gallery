@@ -41,7 +41,7 @@ function App() {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Gallery of My Life</h1>
+          <h1 className="App-title">Nothing is more important than friends and family!</h1>
         </header>
         <GalleryList gallery={gallery} addLike={addLike} fetchPics={fetchPics}/>
       </div>
