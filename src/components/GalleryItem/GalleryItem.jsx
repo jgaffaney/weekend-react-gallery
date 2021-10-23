@@ -3,6 +3,8 @@ import {useState} from 'react';
 export default function GalleryItem({image, addLike, fetchPics}) {
     console.log('in GalleryImage');
 
+    // state variable to hold a display boolean for toggling
+    // this will not be necessary when moved to a database
     const [displayPhoto, setDisplayPhoto] = useState(true);
 
     const toggleDescription = () => {
@@ -15,6 +17,7 @@ export default function GalleryItem({image, addLike, fetchPics}) {
 
     return (
         <div className="gallery-image">
+            {/* conditional rendering to display pic or description */}
             {displayPhoto ? 
             (<img src={image.path} onClick={toggleDescription} className="pic"/>) :
             (<div className="pic" onClick={toggleDescription}><

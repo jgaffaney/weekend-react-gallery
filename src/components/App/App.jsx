@@ -12,12 +12,12 @@ function App() {
     // state variables
     const [gallery, setGallery] = useState([]);
 
+    // updates the like count
     const addLike = (id) => {
       console.log('in addLike with: ', id);
       axios.put(`/gallery/like/${id}`)
           .then(response => {
             console.log('put response: ', response);
-            // setGallery(response.data);
             fetchPics()
           })
           .catch(err => {
@@ -41,7 +41,7 @@ function App() {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Nothing is more important than friends and family!</h1>
+          <h1 className="App-title">My <b>"most important"</b> in life are friends and family!</h1>
         </header>
         <GalleryList gallery={gallery} addLike={addLike} fetchPics={fetchPics}/>
       </div>
