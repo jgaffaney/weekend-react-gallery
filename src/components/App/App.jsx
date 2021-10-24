@@ -63,8 +63,8 @@ function App() {
         <header className="App-header">
           <h1 className="App-title">My <b>"most important"</b> in life are friends and family!</h1>
         </header>
-        <GalleryList gallery={gallery} addLike={addLike} fetchPics={fetchPics}/>
         <NewPicForm addPic={addPic}/>
+        <GalleryList gallery={gallery} addLike={addLike} fetchPics={fetchPics}/>
       </div>
     );
 }

@@ -1,0 +1,42 @@
+.form-container {
+    display: grid;
+    margin: 2% auto 2% auto;
+    max-width: 75%;
+    border: 2px solid gray;
+    border-radius: 10px;
+    justify-content: center;
+}
+
+form {
+
+    margin: 2% auto 2% auto;
+    }
+
+input:required:valid {
+    border-color: green;
+}
+
+input:invalid {
+border-color: hsla(360, 90%, 60%, .9);
+}
+
+.submitBtn {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    padding: 0 .5% 0 .5%;
+    margin: 2% auto 0 auto;
+    font-size: 1.25rem;
+    border-radius: 5px;
+    width: 30%;
+}
+
+.description {
+    width: 80%;
+    margin: 1% auto 1% auto;
+}
+
+.path {
+    width: 60%;
+    margin: 1% auto 1% auto;
+}
