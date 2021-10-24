@@ -1,3 +1,4 @@
+import axios from 'axios';
 import {useState} from 'react';
 
 export default function GalleryItem({image, addLike, fetchPics}) {
@@ -6,6 +7,19 @@ export default function GalleryItem({image, addLike, fetchPics}) {
     // state variable to hold a display boolean for toggling
     // this will not be necessary when moved to a database
     const [displayPhoto, setDisplayPhoto] = useState(true);
+
+    const handleDelete = (id) => {
+        console.log('in handle delete');
+        axios({
+            method: 'DELETE',
+            url: `/gallery/${id}`
+        }).then(response => {
+            console.log('Delete response from DB: ', response);
+            fetchPics();
+        }).catch(err => {
+            console.log('Error on delete: ', err);
+        })
+    }
 
     const toggleDescription = () => {
         console.log('in toggle Description with: ', image);
@@ -26,6 +40,7 @@ export default function GalleryItem({image, addLike, fetchPics}) {
             </div>)}
             <button className="likeBtn" onClick={() => addLike(image.id)}>Like</button>
             <p className="likes">{image.likes} likes!</p>
+            <button className="deleteBtn" onClick={() => handleDelete(image.id)}>Delete Pic</button>
             
         </div> 
     )
