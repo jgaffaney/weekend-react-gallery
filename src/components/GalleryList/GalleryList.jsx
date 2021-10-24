@@ -9,6 +9,7 @@ export default function GalleryList({gallery, addLike, fetchPics}) {
             <div className="gallery-list">
                 {gallery.map((image) => (
                    <GalleryItem 
+                        // unique key for each component
                         key={image.id} 
                         image={image} 
                         addLike={addLike}

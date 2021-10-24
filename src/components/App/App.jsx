@@ -31,7 +31,6 @@ function App() {
     }
     
 
-
     // updates the like count
     const addLike = (id) => {
       console.log('in addLike with: ', id);

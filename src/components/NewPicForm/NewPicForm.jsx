@@ -20,7 +20,7 @@ function NewPicForm({addPic}) {
         
         addPic(newPic);
     }
-    console.log('newPicPath: ', newPicPath);
+    // console.log('newPicPath: ', newPicPath);
     return (
         <div className="form-container">
             <p>Upload your own photos here!</p>
@@ -31,6 +31,7 @@ function NewPicForm({addPic}) {
                         type="text" 
                         placeholder="URL" 
                         onChange={(e) => setNewPicPath(e.target.value)}
+                        // ensure field filled before submitting POST request
                         required
                 />
                 <br></br>
