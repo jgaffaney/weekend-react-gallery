@@ -1,23 +1,23 @@
 import {useState} from 'react';
 
-export default function NewPic({addPic}) {
+function NewPicForm({addPic}) {
 
     const [newPicPath, setNewPicPath] = useState('');
     const [newPicDescription, setNewPicDescription] = useState('');
 
 
     const handleSubmit = (e) => {
-        console.log('in handleSubmit');
         e.preventDefault();
-        
+
         const newPic = {
             path: newPicPath,
-            description: newPicDescription,
-            likes: 0
+            description: newPicDescription
         }
+
+        
         addPic(newPic);
     }
-
+    console.log('newPicPath: ', newPicPath);
     return (
         <form onSubmit={handleSubmit}>
             <label htmlFor="path">Add a URL for your image:</label>
@@ -36,7 +36,7 @@ export default function NewPic({addPic}) {
             <button className="submitBtn" type="Submit">Submit</button>
         </form>
 
-
-
     )
 }
+
+export default NewPicForm;

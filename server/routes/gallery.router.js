@@ -38,4 +38,26 @@ router.get('/', (req, res) => {
 });
          // END GET Route
 
+// POST Route
+router.post('/', (req, res) => {
+    const picToAdd = req.body;
+    const queryText = `
+        INSERT INTO gallery (path, description)
+        VALUES ($1, $2);
+    `
+    
+    console.log('req.body = ', req.body)
+    
+    let values = [picToAdd.path, picToAdd.description];
+    pool.query(queryText, values)
+        .then(response => {
+            console.log('POST response from DB: ', response);
+            res.sendStatus(201)            
+        })
+        .catch(err => {
+            console.log('Error from DB on POST: ', err);
+            res.sendStatus(500);
+        })
+    })
+
 module.exports = router;

@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import './App.css';
 import axios from 'axios';
 import GalleryList from '../GalleryList/GalleryList.jsx';
-import NewPic from '../NewPicForm/NewPicForm';
+import NewPicForm from '../NewPicForm/NewPicForm';
 
 function App() {
 
@@ -16,11 +16,18 @@ function App() {
     // uploads a URL path and description to DB 
     const addPic = (newPic) => {
       console.log('in addPic');
+      console.log('newPic = ', newPic);
       axios({
         method: 'POST',
         url: '/gallery',
-        data: {newPic}
+        data: newPic
+      }).then(response => {
+          console.log('POST response: ', response);
+          fetchPics();
       })
+        .catch(err => {
+          console.log('Error on POST ', err);
+        })
     }
     
 
@@ -57,7 +64,7 @@ function App() {
           <h1 className="App-title">My <b>"most important"</b> in life are friends and family!</h1>
         </header>
         <GalleryList gallery={gallery} addLike={addLike} fetchPics={fetchPics}/>
-        <NewPic addPic={addPic}/>
+        <NewPicForm addPic={addPic}/>
       </div>
     );
 }

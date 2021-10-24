@@ -14,9 +14,10 @@ export default function GalleryItem({image, addLike, fetchPics}) {
         console.log('displayPhoto after: ', displayPhoto);
         fetchPics();
     }
-
+    console.log('image.path from GalleryItem: ', image.path);
     return (
         <div className="gallery-image">
+
             {/* conditional rendering to display pic or description */}
             {displayPhoto ? 
             (<img src={image.path} onClick={toggleDescription} className="pic"/>) :
