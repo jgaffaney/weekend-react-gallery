@@ -52,7 +52,6 @@ export default function GalleryItem({image, addLike, fetchPics}) {
                     size="small"
                     style={{margin: '0 auto', display: "flex"}}
                     variant="contained" 
-                    {/* Adds a trashcan icon to the Delete button */}
                     startIcon={<DeleteSharp />}
                     className="deleteBtn" 
                     onClick={() => handleDelete(image.id)}>Delete Pic</Button>
