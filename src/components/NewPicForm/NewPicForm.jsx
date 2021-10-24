@@ -1,5 +1,7 @@
 import {useState} from 'react';
 import './NewPicForm.css';
+import Button from '@mui/material/Button';
+import TextareaAutoSize from '@mui/material/TextareaAutosize'
 
 function NewPicForm({addPic}) {
 
@@ -33,14 +35,22 @@ function NewPicForm({addPic}) {
                 />
                 <br></br>
                 <label htmlFor="description">Add a description for your image:</label>
-                <textarea 
+                <TextareaAutoSize
                     rows="4" 
                     cols="25" 
                     id="description" 
                     className="description"
+                    aria-label="minimum height"
+                    minRows={3}
+                    maxRows={5}
+                    style={{width: 300}}
                     onChange={(e) => setNewPicDescription(e.target.value)}
                 />
-                <button className="submitBtn" type="Submit">Submit</button>
+                <Button variant="contained" 
+                        color="info"
+                        className="submitBtn" 
+                        style={{margin: '0 auto', display: "flex"}}
+                        type="Submit">Submit </Button>
             </form>
         </div>
     )

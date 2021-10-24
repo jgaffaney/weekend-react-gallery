@@ -1,5 +1,8 @@
 import axios from 'axios';
 import {useState} from 'react';
+import Button from '@mui/material/Button'
+import DeleteSharp from '@mui/icons-material/DeleteSharp'
+// import DeleteIcon from "@mui/icons-material"
 
 export default function GalleryItem({image, addLike, fetchPics}) {
     console.log('in GalleryImage');
@@ -38,9 +41,19 @@ export default function GalleryItem({image, addLike, fetchPics}) {
             (<div className="pic" onClick={toggleDescription}><
                 h5>{image.description}</h5>
             </div>)}
-            <button className="likeBtn" onClick={() => addLike(image.id)}>Like</button>
+            <Button variant="contained" 
+                    size="small"
+                    color="primary" 
+                    className="likeBtn" 
+                    onClick={() => addLike(image.id)}>Like</Button>
             <p className="likes">{image.likes} likes!</p>
-            <button className="deleteBtn" onClick={() => handleDelete(image.id)}>Delete Pic</button>
+            <Button color="warning" 
+                    size="small"
+                    style={{margin: '0 auto', display: "flex"}}
+                    variant="contained" 
+                    startIcon={<DeleteSharp />}
+                    className="deleteBtn" 
+                    onClick={() => handleDelete(image.id)}>Delete Pic</Button>
             
         </div> 
     )

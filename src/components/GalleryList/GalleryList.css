@@ -46,7 +46,6 @@
 }
 
 .deleteBtn {
-    justify-content: center;
     grid-area: delete;
     width: 75%;
     margin: 1% auto 1% auto;
