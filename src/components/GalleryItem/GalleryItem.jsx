@@ -5,6 +5,7 @@ export default function GalleryItem({image, addLike, fetchPics}) {
 
     // state variable to hold a display boolean for toggling
     // this will not be necessary when moved to a database
+    // actually, this will stay to ensure all photos show on initial load
     const [displayPhoto, setDisplayPhoto] = useState(true);
 
     const toggleDescription = () => {
