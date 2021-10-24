@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import './App.css';
 import axios from 'axios';
 import GalleryList from '../GalleryList/GalleryList.jsx';
+import NewPic from '../NewPicForm/NewPicForm';
 
 function App() {
 
@@ -11,6 +12,18 @@ function App() {
 
     // state variables
     const [gallery, setGallery] = useState([]);
+
+    // uploads a URL path and description to DB 
+    const addPic = (newPic) => {
+      console.log('in addPic');
+      axios({
+        method: 'POST',
+        url: '/gallery',
+        data: {newPic}
+      })
+    }
+    
+
 
     // updates the like count
     const addLike = (id) => {
@@ -44,6 +57,7 @@ function App() {
           <h1 className="App-title">My <b>"most important"</b> in life are friends and family!</h1>
         </header>
         <GalleryList gallery={gallery} addLike={addLike} fetchPics={fetchPics}/>
+        <NewPic addPic={addPic}/>
       </div>
     );
 }

@@ -2,7 +2,7 @@ CREATE TABLE gallery (
     id SERIAL PRIMARY KEY,
     path VARCHAR(256) NOT NULL,
     description VARCHAR(512),
-    likes INT,
+    likes INT DEFAULT 0,
     display_photo BOOLEAN DEFAULT true
 );
 
