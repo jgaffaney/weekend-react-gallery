@@ -32,9 +32,13 @@ border-color: hsla(360, 90%, 60%, .9);
 .description {
     width: 80%;
     margin: 1% auto 1% auto;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .path {
     width: 60%;
     margin: 1% auto 1% auto;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
 }
+
