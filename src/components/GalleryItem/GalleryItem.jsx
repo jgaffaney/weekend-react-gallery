@@ -1,4 +1,8 @@
+import axios from 'axios';
 import {useState} from 'react';
+import Button from '@mui/material/Button'
+import DeleteSharp from '@mui/icons-material/DeleteSharp'
+// import DeleteIcon from "@mui/icons-material"
 
 export default function GalleryItem({image, addLike, fetchPics}) {
     console.log('in GalleryImage');
@@ -7,6 +11,19 @@ export default function GalleryItem({image, addLike, fetchPics}) {
     // this will not be necessary when moved to a database
     const [displayPhoto, setDisplayPhoto] = useState(true);
 
+    const handleDelete = (id) => {
+        console.log('in handle delete');
+        axios({
+            method: 'DELETE',
+            url: `/gallery/${id}`
+        }).then(response => {
+            console.log('Delete response from DB: ', response);
+            fetchPics();
+        }).catch(err => {
+            console.log('Error on delete: ', err);
+        })
+    }
+
     const toggleDescription = () => {
         console.log('in toggle Description with: ', image);
         console.log('displayPhoto= ', displayPhoto);
@@ -14,17 +31,29 @@ export default function GalleryItem({image, addLike, fetchPics}) {
         console.log('displayPhoto after: ', displayPhoto);
         fetchPics();
     }
-
+    console.log('image.path from GalleryItem: ', image.path);
     return (
         <div className="gallery-image">
+
             {/* conditional rendering to display pic or description */}
             {displayPhoto ? 
             (<img src={image.path} onClick={toggleDescription} className="pic"/>) :
             (<div className="pic" onClick={toggleDescription}><
                 h5>{image.description}</h5>
             </div>)}
-            <button className="likeBtn" onClick={() => addLike(image.id)}>Like</button>
+            <Button variant="contained" 
+                    size="small"
+                    color="primary" 
+                    className="likeBtn" 
+                    onClick={() => addLike(image.id)}>Like</Button>
             <p className="likes">{image.likes} likes!</p>
+            <Button color="warning" 
+                    size="small"
+                    style={{margin: '0 auto', display: "flex"}}
+                    variant="contained" 
+                    startIcon={<DeleteSharp />}
+                    className="deleteBtn" 
+                    onClick={() => handleDelete(image.id)}>Delete Pic</Button>
             
         </div> 
     )
